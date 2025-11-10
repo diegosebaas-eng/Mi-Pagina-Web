@@ -390,3 +390,58 @@ body {
     padding: 6px 16px;
   }
 }
+
+/* Header / nav shared for index and contacto */
+.site-header {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 10px;
+  z-index: 30;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.nav-button {
+  display: inline-block;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.12);
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.18);
+  font-weight: 700;
+  transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
+}
+
+.nav-button:hover {
+  background: white;
+  color: var(--navy);
+  transform: translateY(-3px);
+}
+
+/* ensure hero content is not hidden under the fixed header */
+.hero {
+  padding-top: 120px;
+}
+
+@media (max-width: 768px) {
+  .site-header { right: 12px; top: 10px; }
+  .hero { padding-top: 100px; }
+}
+
+/* Contact page specifics */
+.contact-page { display:flex; align-items:center; justify-content:center; min-height: 80vh; padding: 40px 20px; }
+.contact-card { background: rgba(255,255,255,0.06); backdrop-filter: blur(6px); padding: 28px; border-radius: 12px; width: 100%; max-width: 720px; color: white; border: 1px solid rgba(255,255,255,0.08); }
+.contact-card h1 { margin-bottom: 8px; font-size: 28px; }
+.contact-card p { margin-bottom: 16px; opacity: 0.9; }
+.form label { display:block; margin:12px 0 6px; font-weight:600; }
+.form input, .form textarea { width:100%; padding:10px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); color: white; }
+.form textarea { resize: vertical; }
+.form-actions { display:flex; gap:12px; margin-top:14px; align-items:center; }
+
+@media (max-width:480px) {
+  .nav-button { padding: 8px 10px; font-size:14px; }
+  .contact-card { padding: 18px; }
+}
