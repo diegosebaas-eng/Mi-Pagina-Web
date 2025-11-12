@@ -6,13 +6,8 @@
   <title>Diego Lima - Frontend </title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="styles.css">
-  <script src="scripts.js" defer></script>
 </head>
 <body>
-  <header class="site-header">
-    <a href="contacto.html#contact-form" class="nav-button">Contacto</a>
-    <a href="about.html" class="nav-button">Curriculum</a>
-  </header>
   <section class="hero">
     <div class="floating-shapes">
       <div class="shape"></div>
@@ -61,6 +56,7 @@
         <a href="about.html" class="cta-button">
           <span><i class="bi bi-file-person"></i> Ver Mi Curriculum</span>
         </a>
+       
       </div>
 
       <div class="tech-stack">
@@ -75,6 +71,114 @@
     </div>
 
     <div class="scroll-indicator"></div>
+  </section>
+
+  <!-- Nueva Sección de Servicios -->
+  <section class="services-section">
+    <div class="services-container">
+      <h2 class="services-title"><i class="bi bi-briefcase"></i> Mis Servicios</h2>
+      <p class="services-subtitle">Soluciones creativas y técnicas para tus proyectos</p>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="bi bi-laptop"></i>
+          </div>
+          <h3>Desarrollo Frontend</h3>
+          <p>Creación de sitios web modernos, responsivos y optimizados. Desde landing pages hasta aplicaciones web interactivas con las últimas tecnologías.</p>
+          <ul class="service-list">
+            <li><i class="bi bi-check-circle-fill"></i> Sitios web responsivos</li>
+            <li><i class="bi bi-check-circle-fill"></i> Interfaces intuitivas</li>
+            <li><i class="bi bi-check-circle-fill"></i> Optimización de rendimiento</li>
+            <li><i class="bi bi-check-circle-fill"></i> Diseño moderno y atractivo</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="bi bi-box-seam"></i>
+          </div>
+          <h3>Modelado 3D</h3>
+          <p>Diseño y modelado 3D profesional para impresión. Creo modelos detallados y optimizados listos para fabricar en cualquier impresora 3D.</p>
+          <ul class="service-list">
+            <li><i class="bi bi-check-circle-fill"></i> Figuras personalizadas</li>
+            <li><i class="bi bi-check-circle-fill"></i> Prototipos funcionales</li>
+            <li><i class="bi bi-check-circle-fill"></i> Archivos STL optimizados</li>
+            <li><i class="bi bi-check-circle-fill"></i> Relieves y texturas detalladas</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="bi bi-stars"></i>
+          </div>
+          <h3>Diseño Personalizado</h3>
+          <p>A través de <strong>Ares 3D</strong>, transformo tus ideas en productos únicos. Desde figuras de mascotas hasta accesorios funcionales hechos a medida.</p>
+          <ul class="service-list">
+            <li><i class="bi bi-check-circle-fill"></i> Figuras de mascotas realistas</li>
+            <li><i class="bi bi-check-circle-fill"></i> Llaveros personalizados</li>
+            <li><i class="bi bi-check-circle-fill"></i> Medallas y trofeos</li>
+            <li><i class="bi bi-check-circle-fill"></i> Soportes funcionales a medida</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="process-section">
+        <h3 class="process-title"><i class="bi bi-diagram-3"></i> Proceso de Trabajo</h3>
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="step-number">1</div>
+            <h4>Consulta</h4>
+            <p>Conversamos sobre tu idea y necesidades</p>
+          </div>
+          <div class="process-arrow">→</div>
+          <div class="process-step">
+            <div class="step-number">2</div>
+            <h4>Diseño</h4>
+            <p>Creo el diseño y te muestro previsualizaciones</p>
+          </div>
+          <div class="process-arrow">→</div>
+          <div class="process-step">
+            <div class="step-number">3</div>
+            <h4>Ajustes</h4>
+            <p>Refinamos los detalles según tu feedback</p>
+          </div>
+          <div class="process-arrow">→</div>
+          <div class="process-step">
+            <div class="step-number">4</div>
+            <h4>Entrega</h4>
+            <p>Recibe tu producto terminado o archivo digital</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="contact-container">
+      <h2 class="contact-title"><i class="bi bi-envelope-paper"></i> Contáctame</h2>
+      <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input type="text" id="name" name="name" required placeholder="Tu nombre">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="tu@email.com">
+        </div>
+        <div class="form-group">
+          <label for="subject">Asunto</label>
+          <input type="text" id="subject" name="subject" required placeholder="Asunto del mensaje">
+        </div>
+        <div class="form-group">
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" required placeholder="Tu mensaje aquí..."></textarea>
+        </div>
+        <button type="submit" class="submit-button">
+          <i class="bi bi-send"></i> Enviar Mensaje
+        </button>
+      </form>
+    </div>
   </section>
 
   <footer class="footer">
