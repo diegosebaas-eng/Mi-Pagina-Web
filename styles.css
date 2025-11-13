@@ -196,6 +196,10 @@ body {
 
 .cta-container {
   margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .cta-button {
@@ -213,6 +217,12 @@ body {
   overflow: hidden;
 }
 
+.cta-button.secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
 .cta-button::before {
   content: '';
   position: absolute;
@@ -224,6 +234,10 @@ body {
   background: var(--highlight);
   transform: translate(-50%, -50%);
   transition: width 0.5s ease, height 0.5s ease;
+}
+
+.cta-button.secondary::before {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .cta-button:hover::before {
@@ -482,26 +496,10 @@ body {
   font-weight: bold;
 }
 
-/* Estilos para la sección de contacto */
-.contact-section {
-  padding: 80px 20px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  position: relative;
-  z-index: 2;
-}
-
-.contact-container {
+/* Estilos para el formulario de contacto */
+.contact-form-container {
   max-width: 600px;
-  margin: 0 auto;
-}
-
-.contact-title {
-  color: white;
-  text-align: center;
-  font-size: 32px;
-  margin-bottom: 40px;
-  font-weight: 700;
+  margin: 40px auto;
 }
 
 .contact-form {
@@ -514,6 +512,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  text-align: left;
 }
 
 .form-group label {
@@ -548,6 +547,7 @@ body {
 .form-group textarea {
   min-height: 120px;
   resize: vertical;
+  font-family: inherit;
 }
 
 .submit-button {
@@ -571,6 +571,32 @@ body {
 .submit-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Información de contacto */
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 12px 20px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.info-item i {
+  font-size: 18px;
 }
 
 .footer {
@@ -633,9 +659,15 @@ body {
     font-size: 14px;
   }
 
+  .cta-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
   .cta-button {
     padding: 16px 45px;
     font-size: 16px;
+    width: 100%;
   }
 
   .footer-content {
@@ -679,6 +711,16 @@ body {
   .process-step {
     min-width: 100%;
   }
+
+  .contact-info {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .info-item {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 480px) {
@@ -694,18 +736,13 @@ body {
     font-size: 12px;
     padding: 6px 16px;
   }
-  
-  .contact-section {
-    padding: 40px 20px;
-  }
-
-  .contact-title {
-    font-size: 24px;
-    margin-bottom: 30px;
-  }
 
   .submit-button {
     padding: 14px 28px;
     font-size: 14px;
+  }
+
+  .contact-form-container {
+    padding: 0 10px;
   }
 }
