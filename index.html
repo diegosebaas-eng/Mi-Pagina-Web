@@ -3,11 +3,850 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Diego Lima - Frontend </title>
+  <title>Diego Lima - Frontend Developer & Diseñador 3D</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --navy: #07263a;
+      --accent: #0b67a6;
+      --light: #f4f8fc;
+      --highlight: #edf3f9;
+      --dark-text: #1a1a1a;
+      --gray: #6b7280;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      overflow-x: hidden;
+      background: linear-gradient(135deg, #07263a 0%, #0b67a6 100%);
+      color: white;
+      scroll-behavior: smooth;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 80px 20px 40px;
+    }
+
+    .floating-shapes {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .shape {
+      position: absolute;
+      opacity: 0.08;
+      animation: float 20s infinite ease-in-out;
+    }
+
+    .shape:nth-child(1) {
+      width: 100px;
+      height: 100px;
+      background: white;
+      border-radius: 20px;
+      top: 15%;
+      left: 8%;
+    }
+
+    .shape:nth-child(2) {
+      width: 80px;
+      height: 80px;
+      background: white;
+      border-radius: 50%;
+      top: 55%;
+      right: 12%;
+      animation-delay: 3s;
+    }
+
+    .shape:nth-child(3) {
+      width: 120px;
+      height: 120px;
+      background: white;
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      bottom: 25%;
+      left: 15%;
+      animation-delay: 6s;
+    }
+
+    .shape:nth-child(4) {
+      width: 90px;
+      height: 90px;
+      background: white;
+      border-radius: 15px;
+      top: 35%;
+      right: 25%;
+      animation-delay: 9s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-40px) rotate(180deg); }
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 1000px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      animation: fadeInDown 0.8s ease;
+    }
+
+    .main-title {
+      margin-bottom: 20px;
+      animation: fadeInUp 0.8s ease 0.2s backwards;
+    }
+
+    .name {
+      font-size: clamp(48px, 8vw, 82px);
+      font-weight: 800;
+      letter-spacing: 3px;
+      display: block;
+      background: linear-gradient(45deg, #ffffff, #edf3f9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 40px rgba(255,255,255,0.3);
+    }
+
+    .tagline {
+      font-size: clamp(20px, 3vw, 28px);
+      margin-bottom: 25px;
+      font-weight: 600;
+      opacity: 0.95;
+      line-height: 1.4;
+      animation: fadeInUp 0.8s ease 0.4s backwards;
+    }
+
+    .description {
+      font-size: clamp(16px, 2vw, 19px);
+      line-height: 1.7;
+      margin-bottom: 45px;
+      opacity: 0.88;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeInUp 0.8s ease 0.6s backwards;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      margin-bottom: 50px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeInUp 0.8s ease 0.8s backwards;
+    }
+
+    .feature {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 25px;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.4s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-8px) scale(1.02);
+      background: rgba(255, 255, 255, 0.18);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    .feature-icon {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+
+    .feature-text {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .cta-container {
+      margin-bottom: 50px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease 1s backwards;
+    }
+
+    .cta-button {
+      padding: 20px 50px;
+      background: white;
+      color: var(--navy);
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 17px;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cta-button.secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--highlight);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.4s ease;
+      z-index: -1;
+    }
+
+    .cta-button.secondary::before {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .cta-button:hover::before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+      font-size: 32px;
+      opacity: 0.5;
+      cursor: pointer;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(-10px); }
+      60% { transform: translateX(-50%) translateY(-5px); }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 100px 20px;
+      background: white;
+      color: var(--dark-text);
+    }
+
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      transition: transform 0.4s ease;
+    }
+
+    .about-image img:hover {
+      transform: scale(1.02) rotate(1deg);
+    }
+
+    .about-content h2 {
+      font-size: 42px;
+      color: var(--navy);
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .about-content h2 i {
+      color: var(--accent);
+      margin-right: 10px;
+    }
+
+    .about-content p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 20px;
+      background: var(--highlight);
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .stat-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .stat-number {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--gray);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Services Section */
+    .services-section {
+      padding: 100px 20px;
+      background: linear-gradient(135deg, rgba(7, 38, 58, 0.95), rgba(11, 103, 166, 0.95));
+      position: relative;
+    }
+
+    .services-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 48px;
+      margin-bottom: 15px;
+      font-weight: 800;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 60px;
+      opacity: 0.9;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 40px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #ffffff, #edf3f9);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-icon {
+      font-size: 50px;
+      margin-bottom: 20px;
+      display: inline-block;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+    }
+
+    .service-card h3 {
+      font-size: 26px;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .service-card p {
+      font-size: 15px;
+      line-height: 1.7;
+      opacity: 0.9;
+      margin-bottom: 20px;
+    }
+
+    .service-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .service-list li {
+      padding: 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      opacity: 0.85;
+    }
+
+    .service-list i {
+      color: #edf3f9;
+      font-size: 18px;
+    }
+
+    /* Portfolio Section */
+    .portfolio-section {
+      padding: 100px 20px;
+      background: white;
+      color: var(--dark-text);
+    }
+
+    .portfolio-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 60px;
+    }
+
+    .portfolio-item {
+      background: var(--highlight);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      border: 2px solid transparent;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+      border-color: var(--accent);
+      box-shadow: 0 20px 50px rgba(11, 103, 166, 0.2);
+    }
+
+    .portfolio-image {
+      height: 220px;
+      background: linear-gradient(135deg, var(--accent), var(--navy));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .portfolio-content {
+      padding: 25px;
+    }
+
+    .portfolio-content h3 {
+      font-size: 22px;
+      color: var(--navy);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .portfolio-content p {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .portfolio-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .portfolio-tags span {
+      background: rgba(11, 103, 166, 0.1);
+      color: var(--accent);
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* Skills Section */
+    .skills-section {
+      padding: 100px 20px;
+      background: var(--light);
+      color: var(--dark-text);
+    }
+
+    .skills-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 60px;
+    }
+
+    .skill-category {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .skill-category:hover {
+      transform: translateY(-5px);
+    }
+
+    .skill-category h3 {
+      font-size: 22px;
+      color: var(--navy);
+      margin-bottom: 20px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .skill-category h3 i {
+      color: var(--accent);
+      font-size: 26px;
+    }
+
+    .skill-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-item {
+      background: var(--highlight);
+      padding: 10px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy);
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .skill-item:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Process Section */
+    .process-section {
+      padding: 100px 20px;
+      background: linear-gradient(135deg, var(--navy), var(--accent));
+    }
+
+    .process-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .process-step {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-number {
+      width: 80px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: 800;
+      margin: 0 auto 20px;
+      transition: all 0.4s ease;
+    }
+
+    .process-step:hover .step-number {
+      transform: scale(1.15) rotate(10deg);
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .process-step h4 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .process-step p {
+      font-size: 15px;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 100px 20px;
+      background: white;
+      color: var(--dark-text);
+      text-align: center;
+    }
+
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-content h2 {
+      font-size: 48px;
+      color: var(--navy);
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .cta-content p {
+      font-size: 19px;
+      color: var(--gray);
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      padding: 20px 50px;
+      background: var(--navy);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 17px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(7, 38, 58, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 45px rgba(7, 38, 58, 0.4);
+      background: var(--accent);
+    }
+
+    .btn-secondary {
+      padding: 20px 50px;
+      background: transparent;
+      color: var(--navy);
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 17px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 2px solid var(--navy);
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: var(--navy);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--navy);
+      padding: 60px 20px 30px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .footer-section p, .footer-section a {
+      font-size: 15px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.8;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.7);
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .about-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .about-image img {
+        margin: 0 auto;
+      }
+
+      .about-stats {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 40px auto 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 36px;
+      }
+
+      .about-content h2 {
+        font-size: 32px;
+      }
+
+      .services-grid,
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-content h2 {
+        font-size: 36px;
+      }
+
+      .process-steps {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Hero Section -->
   <section class="hero">
     <div class="floating-shapes">
       <div class="shape"></div>
@@ -18,7 +857,7 @@
 
     <div class="content">
       <div class="badge">
-        <i class="bi bi-code-slash"></i> Frontend 
+        <i class="bi bi-code-slash"></i> Frontend Developer & Diseñador 3D
       </div>
       
       <h1 class="main-title">
@@ -30,13 +869,13 @@
       <p class="description">
         Emprendedor creativo especializado en desarrollo frontend y diseño 3D. 
         Fundador de <strong>Ares 3D</strong>, donde transformo ideas en realidad 
-        a través de la impresión 3D personalizada.
+        a través de la impresión 3D personalizada y desarrollo web moderno.
       </p>
 
       <div class="features">
         <div class="feature">
           <div class="feature-icon"><i class="bi bi-laptop"></i></div>
-          <div class="feature-text">Desarrollo Frontend</div>
+          <div class="feature-text">Desarrollo Web</div>
         </div>
         <div class="feature">
           <div class="feature-icon"><i class="bi bi-palette"></i></div>
@@ -48,38 +887,74 @@
         </div>
         <div class="feature">
           <div class="feature-icon"><i class="bi bi-stars"></i></div>
-          <div class="feature-text">Diseño Personalizado</div>
+          <div class="feature-text">Diseño Custom</div>
         </div>
       </div>
 
       <div class="cta-container">
-        <a href="about.html" class="cta-button">
-          <span><i class="bi bi-file-person"></i> Ver Mi Curriculum</span>
+        <a href="#about" class="cta-button">
+          <i class="bi bi-person-circle"></i>
+          <span>Conocer Más</span>
         </a>
         <a href="contacto.html" class="cta-button secondary">
-          <span><i class="bi bi-envelope-paper"></i> Contacto</span>
+          <i class="bi bi-envelope-paper"></i>
+          <span>Contacto</span>
         </a>
-      </div>
-
-      <div class="tech-stack">
-        <p class="stack-title"><i class="bi bi-tools"></i> Tecnologías & Herramientas</p>
-        <div class="stack-items">
-          <span><i class="bi bi-box"></i> Tinkercad</span>
-          <span><i class="bi bi-gear"></i> Fusion 360</span>
-          <span><i class="bi bi-pencil-square"></i> AutoCAD</span>
-          <span><i class="bi bi-vector-pen"></i> Illustrator</span>
-        </div>
       </div>
     </div>
 
-    <div class="scroll-indicator"></div>
+    <div class="scroll-indicator">
+      <i class="bi bi-chevron-down"></i>
+    </div>
   </section>
 
-  <!-- Sección de Servicios -->
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="about-container">
+      <div class="about-image">
+        <img src="casual.png" alt="Diego Lima">
+      </div>
+      <div class="about-content">
+        <h2><i class="bi bi-person-badge"></i> Sobre Mí</h2>
+        <p>
+          Soy Diego Lima, un profesional apasionado por la tecnología y el diseño. 
+          Mi trayectoria combina formación técnica como mecánico con experiencia 
+          autodidacta en desarrollo frontend y diseño 3D.
+        </p>
+        <p>
+          En 2025 fundé <strong>Ares 3D</strong>, mi emprendimiento personal donde 
+          materializo ideas creativas mediante impresión 3D. Desde figuras personalizadas 
+          de mascotas hasta accesorios funcionales y decorativos, cada proyecto es único 
+          y hecho a medida.
+        </p>
+        <p>
+          Mi enfoque combina precisión técnica con creatividad, siempre buscando 
+          soluciones innovadoras que superen las expectativas de mis clientes.
+        </p>
+
+        <div class="about-stats">
+          <div class="stat-item">
+            <span class="stat-number">1+</span>
+            <span class="stat-label">Año Emprendiendo</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Proyectos 3D</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Dedicación</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
   <section class="services-section">
     <div class="services-container">
-      <h2 class="services-title"><i class="bi bi-briefcase"></i> Mis Servicios</h2>
-      <p class="services-subtitle">Soluciones creativas y técnicas para tus proyectos</p>
+      <h2 class="section-title"><i class="bi bi-briefcase"></i> Mis Servicios</h2>
+      <p class="section-subtitle">Soluciones creativas y técnicas para tus proyectos</p>
       
       <div class="services-grid">
         <div class="service-card">
@@ -90,9 +965,9 @@
           <p>Creación de sitios web modernos, responsivos y optimizados. Desde landing pages hasta aplicaciones web interactivas con las últimas tecnologías.</p>
           <ul class="service-list">
             <li><i class="bi bi-check-circle-fill"></i> Sitios web responsivos</li>
-            <li><i class="bi bi-check-circle-fill"></i> Interfaces intuitivas</li>
-            <li><i class="bi bi-check-circle-fill"></i> Optimización de rendimiento</li>
-            <li><i class="bi bi-check-circle-fill"></i> Diseño moderno y atractivo</li>
+            <li><i class="bi bi-check-circle-fill"></i> Interfaces modernas</li>
+            <li><i class="bi bi-check-circle-fill"></i> Optimización SEO</li>
+            <li><i class="bi bi-check-circle-fill"></i> Diseño atractivo</li>
           </ul>
         </div>
 
@@ -106,7 +981,7 @@
             <li><i class="bi bi-check-circle-fill"></i> Figuras personalizadas</li>
             <li><i class="bi bi-check-circle-fill"></i> Prototipos funcionales</li>
             <li><i class="bi bi-check-circle-fill"></i> Archivos STL optimizados</li>
-            <li><i class="bi bi-check-circle-fill"></i> Relieves y texturas detalladas</li>
+            <li><i class="bi bi-check-circle-fill"></i> Relieves y texturas</li>
           </ul>
         </div>
 
@@ -117,51 +992,273 @@
           <h3>Diseño Personalizado</h3>
           <p>A través de <strong>Ares 3D</strong>, transformo tus ideas en productos únicos. Desde figuras de mascotas hasta accesorios funcionales hechos a medida.</p>
           <ul class="service-list">
-            <li><i class="bi bi-check-circle-fill"></i> Figuras de mascotas realistas</li>
+            <li><i class="bi bi-check-circle-fill"></i> Figuras de mascotas</li>
             <li><i class="bi bi-check-circle-fill"></i> Llaveros personalizados</li>
             <li><i class="bi bi-check-circle-fill"></i> Medallas y trofeos</li>
-            <li><i class="bi bi-check-circle-fill"></i> Soportes funcionales a medida</li>
+            <li><i class="bi bi-check-circle-fill"></i> Accesorios a medida</li>
           </ul>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="process-section">
-        <h3 class="process-title"><i class="bi bi-diagram-3"></i> Proceso de Trabajo</h3>
-        <div class="process-steps">
-          <div class="process-step">
-            <div class="step-number">1</div>
-            <h4>Consulta</h4>
-            <p>Conversamos sobre tu idea y necesidades</p>
+  <!-- Portfolio Section -->
+  <section class="portfolio-section">
+    <div class="portfolio-container">
+      <h2 class="section-title" style="color: var(--navy);">
+        <i class="bi bi-folder"></i> Proyectos Destacados
+      </h2>
+      <p class="section-subtitle" style="color: var(--gray);">
+        Algunos de mis trabajos más recientes
+      </p>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <div class="portfolio-image">
+            <i class="bi bi-box-seam"></i>
           </div>
-          <div class="process-arrow">→</div>
-          <div class="process-step">
-            <div class="step-number">2</div>
-            <h4>Diseño</h4>
-            <p>Creo el diseño y te muestro previsualizaciones</p>
+          <div class="portfolio-content">
+            <h3>Ares 3D</h3>
+            <p>Emprendimiento de diseño e impresión 3D personalizada. Figuras de mascotas, accesorios y productos únicos hechos a medida.</p>
+            <div class="portfolio-tags">
+              <span>Diseño 3D</span>
+              <span>Impresión</span>
+              <span>E-commerce</span>
+            </div>
           </div>
-          <div class="process-arrow">→</div>
-          <div class="process-step">
-            <div class="step-number">3</div>
-            <h4>Ajustes</h4>
-            <p>Refinamos los detalles según tu feedback</p>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-image">
+            <i class="bi bi-palette"></i>
           </div>
-          <div class="process-arrow">→</div>
-          <div class="process-step">
-            <div class="step-number">4</div>
-            <h4>Entrega</h4>
-            <p>Recibe tu producto terminado o archivo digital</p>
+          <div class="portfolio-content">
+            <h3>Figuras Personalizadas</h3>
+            <p>Diseño y creación de figuras realistas y cartoon de mascotas. Cada pieza es única y modelada con atención al detalle.</p>
+            <div class="portfolio-tags">
+              <span>Tinkercad</span>
+              <span>Fusion 360</span>
+              <span>Custom</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-image">
+            <i class="bi bi-code-square"></i>
+          </div>
+          <div class="portfolio-content">
+            <h3>Portfolio Web</h3>
+            <p>Desarrollo de sitios web modernos y responsivos. Diseño limpio y profesional con excelente experiencia de usuario.</p>
+            <div class="portfolio-tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Skills Section -->
+  <section class="skills-section">
+    <div class="skills-container">
+      <h2 class="section-title" style="color: var(--navy);">
+        <i class="bi bi-tools"></i> Tecnologías & Herramientas
+      </h2>
+      <p class="section-subtitle" style="color: var(--gray);">
+        Las herramientas que domino para crear proyectos excepcionales
+      </p>
+
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3><i class="bi bi-box"></i> Diseño 3D</h3>
+          <div class="skill-items">
+            <span class="skill-item">Tinkercad</span>
+            <span class="skill-item">Fusion 360</span>
+            <span class="skill-item">AutoCAD</span>
+            <span class="skill-item">STL</span>
+            <span class="skill-item">Impresión 3D</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3><i class="bi bi-code-slash"></i> Desarrollo Web</h3>
+          <div class="skill-items">
+            <span class="skill-item">HTML5</span>
+            <span class="skill-item">CSS3</span>
+            <span class="skill-item">JavaScript</span>
+            <span class="skill-item">Responsive</span>
+            <span class="skill-item">Git</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3><i class="bi bi-palette"></i> Diseño Gráfico</h3>
+          <div class="skill-items">
+            <span class="skill-item">Photoshop</span>
+            <span class="skill-item">Illustrator</span>
+            <span class="skill-item">UI/UX</span>
+            <span class="skill-item">Branding</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3><i class="bi bi-gear"></i> Herramientas</h3>
+          <div class="skill-items">
+            <span class="skill-item">Microsoft Office</span>
+            <span class="skill-item">Project Management</span>
+            <span class="skill-item">Customer Service</span>
+            <span class="skill-item">Problem Solving</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="process-section">
+    <div class="process-container">
+      <h2 class="section-title">
+        <i class="bi bi-diagram-3"></i> Mi Proceso de Trabajo
+      </h2>
+      <p class="section-subtitle">
+        Cómo llevo tus ideas desde el concepto hasta la realidad
+      </p>
+
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <h4>Consulta Inicial</h4>
+          <p>Conversamos sobre tu proyecto, necesidades y objetivos para entender tu visión</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <h4>Diseño & Planificación</h4>
+          <p>Creo bocetos, mockups o modelos 3D y te presento propuestas visuales</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <h4>Desarrollo & Ajustes</h4>
+          <p>Trabajo en el proyecto y refinamos detalles según tu feedback continuo</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <h4>Entrega Final</h4>
+          <p>Recibes tu producto terminado, archivo digital o sitio web listo para usar</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2>¿Listo para dar vida a tu proyecto?</h2>
+      <p>
+        Ya sea que necesites un sitio web profesional, un diseño 3D personalizado 
+        o transformar una idea en un producto tangible, estoy aquí para ayudarte. 
+        Hablemos sobre cómo puedo contribuir a tu próximo proyecto.
+      </p>
+      <div class="cta-buttons">
+        <a href="contacto.html" class="btn-primary">
+          <i class="bi bi-envelope-paper"></i>
+          Contáctame Ahora
+        </a>
+        <a href="about.html" class="btn-secondary">
+          <i class="bi bi-file-person"></i>
+          Ver Mi Curriculum
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer class="footer">
-    <div class="footer-content">
-      <p class="location"><i class="bi bi-geo-alt-fill"></i> Mendoza, Argentina</p>
-      <p class="email"><i class="bi bi-envelope-fill"></i> diegosebaas@gmail.com</p>
-      <p class="phone"><i class="bi bi-telephone-fill"></i> 261-2523422</p>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Diego Lima</h3>
+        <p>Frontend Developer & Diseñador 3D</p>
+        <p>Fundador de Ares 3D</p>
+        <p style="margin-top: 20px; opacity: 0.7;">
+          Transformando ideas en experiencias digitales y productos únicos.
+        </p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Navegación</h3>
+        <a href="#about"><i class="bi bi-arrow-right"></i> Sobre Mí</a>
+        <a href="about.html"><i class="bi bi-arrow-right"></i> Curriculum</a>
+        <a href="contacto.html"><i class="bi bi-arrow-right"></i> Contacto</a>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contacto</h3>
+        <p><i class="bi bi-geo-alt-fill"></i> Mendoza, Argentina</p>
+        <a href="mailto:diegosebaas@gmail.com">
+          <i class="bi bi-envelope-fill"></i> diegosebaas@gmail.com
+        </a>
+        <a href="tel:2612523422">
+          <i class="bi bi-telephone-fill"></i> 261-2523422
+        </a>
+      </div>
+
+      <div class="footer-section">
+        <h3>Servicios</h3>
+        <p><i class="bi bi-check2"></i> Desarrollo Frontend</p>
+        <p><i class="bi bi-check2"></i> Modelado 3D</p>
+        <p><i class="bi bi-check2"></i> Impresión 3D</p>
+        <p><i class="bi bi-check2"></i> Diseño Personalizado</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Diego Lima. Todos los derechos reservados.</p>
     </div>
   </footer>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Scroll indicator
+    document.querySelector('.scroll-indicator').addEventListener('click', () => {
+      document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Fade in on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.service-card, .portfolio-item, .skill-category, .process-step').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'all 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
