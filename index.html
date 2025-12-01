@@ -8,8 +8,30 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Header Navigation -->
+  <header class="header-nav">
+    <div class="nav-container">
+      <div class="logo">
+        <span class="logo-name">Diego Lima</span>
+        <span class="logo-subtitle">Developer & 3D Designer</span>
+      </div>
+      <nav class="main-nav">
+        <a href="#home" class="nav-link active">Inicio</a>
+        <a href="#about" class="nav-link">Sobre Mí</a>
+        <a href="#services" class="nav-link">Servicios</a>
+        <a href="#portfolio" class="nav-link">Portfolio</a>
+        <a href="#skills" class="nav-link">Habilidades</a>
+        <a href="about.html" class="nav-link">CV</a>
+        <a href="contacto.html" class="nav-link nav-cta">Contacto</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
+  </header>
+
   <!-- Hero Section -->
-  <section class="hero">
+  <section id="home" class="hero">
     <div class="floating-shapes">
       <div class="shape"></div>
       <div class="shape"></div>
@@ -43,7 +65,6 @@
           <div class="feature-icon"><i class="bi bi-palette"></i></div>
           <div class="feature-text">Modelado 3D</div>
         </div>
-       
         <div class="feature">
           <div class="feature-icon"><i class="bi bi-stars"></i></div>
           <div class="feature-text">Diseño Custom</div>
@@ -77,7 +98,7 @@
         <h2><i class="bi bi-person-badge"></i> Sobre Mí</h2>
         <p>
           Soy Diego Lima, un profesional apasionado por la tecnología y el diseño. 
-          Mi trayectoria combina formación técnica con experiencia 
+          Mi trayectoria combina formación técnica con experiencia en 
           desarrollo frontend y diseño 3D.
         </p>
         <p>
@@ -100,14 +121,17 @@
             <span class="stat-number">50+</span>
             <span class="stat-label">Proyectos 3D</span>
           </div>
-       
+          <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Clientes Satisfechos</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Services Section -->
-  <section class="services-section">
+  <section id="services" class="services-section">
     <div class="services-container">
       <h2 class="section-title"><i class="bi bi-briefcase"></i> Mis Servicios</h2>
       <p class="section-subtitle">Soluciones creativas y técnicas para tus proyectos</p>
@@ -158,10 +182,122 @@
     </div>
   </section>
 
+  <!-- Portfolio Section -->
+<section id="portfolio" class="portfolio-section">
+  <div class="portfolio-container">
+    <h2 class="section-title" style="color: var(--navy);">
+      <i class="bi bi-grid-3x3-gap"></i> Portfolio de Proyectos
+    </h2>
+    <p class="section-subtitle" style="color: var(--gray);">
+      Algunos de mis trabajos más destacados
+    </p>
 
+    <div class="portfolio-grid">
+      <!-- Figuras de Mascotas 3D -->
+      <div class="portfolio-item">
+        <div class="portfolio-image">
+          <img src="a.1.jpeg" alt="Figura personalizada de gato Pinny">
+        </div>
+        <div class="portfolio-content">
+          <h3>Figuras de Mascotas 3D</h3>
+          <p>Colección de figuras personalizadas de mascotas, creadas a partir de fotografías con acabados realistas y cartoon.</p>
+          <div class="portfolio-tags">
+            <span>Tinkercad</span>
+            <span>Impresión 3D</span>
+            <span>Modelado</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ares 3D -->
+      <div class="portfolio-item">
+        <div class="portfolio-image">
+          <i class="bi bi-code-square"></i>
+        </div>
+        <div class="portfolio-content">
+          <h3>Ares 3D - Sitio Corporativo</h3>
+          <p>Desarrollo de sitio web moderno y responsivo para mi emprendimiento Ares 3D, con diseño personalizado y optimización SEO.</p>
+          <div class="portfolio-tags">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+          </div>
+          <a href="https://ares-impresiones.github.io/Landing-page-Ares-3D/" target="_blank" rel="noopener noreferrer" class="project-link">
+            <i class="bi bi-box-arrow-up-right"></i> Ver Proyecto
+          </a>
+        </div>
+      </div>
+
+      <!-- Medallas Personalizadas -->
+      <div class="portfolio-item">
+        <div class="portfolio-image">
+          <img src="medalla.jpg" alt="Medalla personalizada con relieves">
+        </div>
+        <div class="portfolio-content">
+          <h3>Medallas Personalizadas</h3>
+          <p>Serie de medallas y trofeos deportivos con relieves y textos personalizados para eventos locales.</p>
+          <div class="portfolio-tags">
+            <span>Fusion 360</span>
+            <span>STL</span>
+            <span>Diseño Custom</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Llaveros Únicos -->
+      <div class="portfolio-item">
+        <div class="portfolio-image">
+          <img src="llaveroperso.jpg" alt="Llavero Ares 3D personalizado">
+        </div>
+        <div class="portfolio-content">
+          <h3>Llaveros Únicos</h3>
+          <p>Diseño de llaveros funcionales y decorativos con iniciales, logos y formas personalizadas.</p>
+          <div class="portfolio-tags">
+            <span>Tinkercad</span>
+            <span>Personalización</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Landing Page -->
+      <div class="portfolio-item">
+        <div class="portfolio-image">
+          <i class="bi bi-phone"></i>
+        </div>
+        <div class="portfolio-content">
+          <h3>Landing Page Responsive</h3>
+          <p>Página de aterrizaje moderna con diseño mobile-first, animaciones suaves y experiencia de usuario optimizada.</p>
+          <div class="portfolio-tags">
+            <span>Responsive</span>
+            <span>UI/UX</span>
+            <span>Animaciones</span>
+          </div>
+          <a href="https://diegosebaas-eng.github.io/Landing-page/" target="_blank" rel="noopener noreferrer" class="project-link">
+            <i class="bi bi-box-arrow-up-right"></i> Ver Proyecto
+          </a>
+        </div>
+      </div>
+
+      <!-- Accesorios Funcionales -->
+      <div class="portfolio-item">
+        <div class="portfolio-image">
+          <img src="prototipo funcional.webp" alt="Pieza técnica 3D">
+        </div>
+        <div class="portfolio-content">
+          <h3>Accesorios Funcionales</h3>
+          <p>Desarrollo de accesorios prácticos para el hogar y oficina, desde soportes hasta organizadores.</p>
+          <div class="portfolio-tags">
+            <span>Diseño 3D</span>
+            <span>Prototipado</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- Skills Section -->
-  <section class="skills-section">
+  <section id="skills" class="skills-section">
     <div class="skills-container">
       <h2 class="section-title" style="color: var(--navy);">
         <i class="bi bi-tools"></i> Tecnologías & Herramientas
@@ -175,7 +311,7 @@
           <h3><i class="bi bi-box"></i> Diseño 3D</h3>
           <div class="skill-items">
             <span class="skill-item">Tinkercad</span>
-            <span class="skill-item">Fusion 360</span>
+            
             <span class="skill-item">AutoCAD</span>
             <span class="skill-item">STL</span>
             <span class="skill-item">Impresión 3D</span>
@@ -186,22 +322,14 @@
           <h3><i class="bi bi-code-slash"></i> Desarrollo Web</h3>
           <div class="skill-items">
             <span class="skill-item">HTML5</span>
-            <span class="skill-item">CSS3</span>
+            <span class="skill-item">CSS</span>
             <span class="skill-item">JavaScript</span>
             <span class="skill-item">Responsive</span>
             <span class="skill-item">Git</span>
           </div>
         </div>
 
-        <div class="skill-category">
-          <h3><i class="bi bi-palette"></i> Diseño Gráfico</h3>
-          <div class="skill-items">
-            <span class="skill-item">Photoshop</span>
-            <span class="skill-item">Illustrator</span>
-            <span class="skill-item">UI/UX</span>
-            <span class="skill-item">Branding</span>
-          </div>
-        </div>
+  
 
         <div class="skill-category">
           <h3><i class="bi bi-gear"></i> Herramientas</h3>
